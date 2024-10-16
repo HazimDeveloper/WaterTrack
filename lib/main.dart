@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_map_hakas_version/apis/places_list.dart';
-import 'package:google_map_hakas_version/pages/home_pages.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:google_map_hakas_version/pages/water_splash_pages.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Water Access Tracker',
       
-      home: HomePages(),
+      home: WaterDropSplashScreen(),
     );
   }
 }

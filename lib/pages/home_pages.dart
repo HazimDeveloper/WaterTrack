@@ -3,9 +3,11 @@ import 'package:google_map_hakas_version/models/place.dart';
 import 'package:google_map_hakas_version/pages/map_pages.dart';
 
 import 'package:flutter/services.dart' as rootBundle; // For loading assets
-
+import 'dart:convert';  
 import 'package:google_map_hakas_version/models/place.dart';
-import 'dart:convert';
+
+import 'package:google_map_hakas_version/widget/custom_navigation_bar.dart';
+import 'package:google_map_hakas_version/widget/modern_list_item.dart';
 
 class HomePages extends StatefulWidget {
   const HomePages({super.key});
@@ -15,6 +17,7 @@ class HomePages extends StatefulWidget {
 }
 
 class _HomePagesState extends State<HomePages> {
+  late int _selectedIndex = 1;
   late Future<List<Place>> futurePlaces;
   // Function to load and parse the JSON from assets
   Future<List<Place>> loadJsonData() async {
@@ -42,36 +45,37 @@ class _HomePagesState extends State<HomePages> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Container(
-              margin: EdgeInsets.only(left: 0),
+              margin: const EdgeInsets.only(left: 0),
               child: Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(7),
+                    padding: const EdgeInsets.all(7),
                     child: Container(
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
                           color: Colors.transparent,
                           borderRadius: BorderRadius.circular(50),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage("assets/images/me.png"),
                               fit: BoxFit.cover)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 30),
+                        child: const Text(
                           "HazimDev",
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "Terengganu, Malaysia",
                         style: TextStyle(fontSize: 13),
                       )
@@ -81,21 +85,29 @@ class _HomePagesState extends State<HomePages> {
               )),
           actions: [
             Container(
-              margin: EdgeInsets.only(right: 15),
-              child: Icon(Icons.notifications_none),
+              margin: const EdgeInsets.only(right: 15),
+              child: const Icon(Icons.notifications_none),
             )
           ],
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-               Column(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  child: Text("Tracking Water Access in Rural Area",style: TextStyle(fontSize: 15),),
+                  margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  child: const Text(
+                    "Recent Areas",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
                 )
               ],
             ),
-            
             Expanded(
               child: FutureBuilder<List<Place>>(
                 future: futurePlaces,
@@ -103,99 +115,54 @@ class _HomePagesState extends State<HomePages> {
                   ShrinkWrappingViewport;
                   if (snapshot.hasData) {
                     List<Place>? places = snapshot.data;
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: places!.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 20),
-                            width: 40,
-                            decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                                      color: Colors.black, width: 1)),
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.white,
-                            ),
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    color: Colors.black.withOpacity(0.1),
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  child: Icon(
-                                    Icons.location_pin,
-                                    color: Colors.blue,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 30,
-                                ),
-                                Expanded(
-                                    child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(places[index].placeName),
-                                  ],
-                                )),
-                                Container(
-                                  width: 35,
-                                  height: 35,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  child: IconButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => MapPages(
-                                                    placeName:
-                                                        places[index].placeName,
-                                                    latitude:
-                                                        places[index].latitude,
-                                                    longitude:
-                                                        places[index].longitude,
-                                                  )));
-                                    },
-                                    icon: Icon(
-                                      Icons.arrow_forward,
-                                      size: 20,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          );
-                        });
+                    return Expanded(
+                      child: FutureBuilder<List<Place>>(
+                        future: futurePlaces,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            List<Place>? places = snapshot.data;
+                            return ListView.builder(
+                              itemCount: places!.length,
+                              itemBuilder: (context, index) {
+                                return ModernListItem(
+                                  placeName: places[index].placeName,
+                                  criticalLevel:
+                                      "28%", // Replace with actual data if available
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MapPages(
+                                          placeName: places[index].placeName,
+                                          latitude: places[index].latitude,
+                                          longitude: places[index].longitude,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                            );
+                          }
+                          return const Center(child: CircularProgressIndicator());
+                        },
+                      ),
+                    );
                   }
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 },
               ),
             ),
           ],
         ),
-        bottomNavigationBar: Container(
-          decoration: BoxDecoration(
-              color: Colors.black,
-              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2))]),
-          child: BottomNavigationBar(
-              selectedItemColor: Colors.blue,
-              backgroundColor: Colors.white,
-              elevation: 0,
-              items: [
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.chat), label: 'Chatbot'),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.logout_rounded), label: 'Logout')
-              ]),
+        bottomNavigationBar: CustomBottomNavigationBar(
+          selectedIndex: _selectedIndex,
+          onItemSelected: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+            // Handle navigation here
+          },
         ));
   }
 }

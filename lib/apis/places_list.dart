@@ -5,6 +5,8 @@ import 'package:flutter/services.dart' as rootBundle; // For loading assets
 import 'package:google_map_hakas_version/models/place.dart'; // Import your Place model
 
 class PlacesList extends StatefulWidget {
+  const PlacesList({super.key});
+
   @override
   _PlacesListState createState() => _PlacesListState();
 }
@@ -34,7 +36,7 @@ class _PlacesListState extends State<PlacesList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Places List'),
+        title: const Text('Places List'),
       ),
       body: FutureBuilder<List<Place>>(
         future: futurePlaces,
@@ -53,7 +55,7 @@ class _PlacesListState extends State<PlacesList> {
           } else if (snapshot.hasError) {
             return Text("${snapshot.error}");
           }
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         },
       ),
     );

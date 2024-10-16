@@ -1,0 +1,92 @@
+[
+    {
+      "name": "Kuching Water Board",
+      "latitude": 1.5352638,
+      "longitude": 110.3490068,
+      "street": "Jalan Batu Lintang",
+      "address": "Lintang Park, 93200 Kuching, Sarawak",
+      "fulladdress": "Jalan Batu Lintang, Lintang Park, 93200 Kuching, Sarawak",
+      "phone": "082-222 222"
+    },
+    {
+      "name": "TTK Diamond Marketing",
+      "latitude": 1.4628711,
+      "longitude": 110.3157105,
+      "street": "Sublot 16, Jalan Batu Kitang",
+      "address": "Yan Kwan Industrial Estate, 93250 Kuching, Sarawak",
+      "fulladdress": "Sublot 16, Jalan Batu Kitang, Yan Kwan Industrial Estate, 93250 Kuching, Sarawak",
+      "phone": "082-625 668"
+    },
+    {
+      "name": "Batu Kitang Water Treatment Plant (Kuching Water Board)",
+      "latitude": 1.4496581,
+      "longitude": 110.2863082,
+      "street": "Jalan Batu Lintang",
+      "address": "93200 Kuching, Sarawak",
+      "fulladdress": "Jalan Batu Lintang, 93200 Kuching, Sarawak",
+      "phone": "082-222 222"
+    },
+    {
+      "name": "J.B.A.L.B. Sarawak",
+      "latitude": 1.536147,
+      "longitude": 110.35611879999999,
+      "street": "Ibu Pejabat, Jabatan Bekalan Air Luar Bandar (JBALB) Sarawak, Tingkat 1 dan Mezzanine, Bangunan ST3, No. 55, Jalan Simpang Tiga, 93350 Kuching, Sarawak.",
+      "address": "Lorong Simpang 3 1",
+      "fulladdress": "",
+      "phone": "082-263 000"
+    },
+    {
+      "name": "Water Genesis Sdn. Bhd.",
+      "latitude": 1.5025603,
+      "longitude": 110.34744789999999,
+      "street": "Commercial Centre",
+      "address": "128G, Lorong Lapangan Terbang 2, Green Heights, 93250 Kuching, Sarawak",
+      "fulladdress": "Commercial Centre, 128G, Lorong Lapangan Terbang 2, Green Heights, 93250 Kuching, Sarawak",
+      "phone": "082-452 525"
+    },
+    {
+      "name": "Sibu Water Board",
+      "latitude": 2.2581039,
+      "longitude": 111.8743954,
+      "street": "KM5, Salim Road, 96007, Sibu, Sarawak",
+      "address": "96000",
+      "fulladdress": "KM5, Salim Road, 96007, Sibu, Sarawak, 96000",
+      "phone": "084-211 001"
+    },
+    {
+      "name": "Rural Water Supply Department Serian Division",
+      "latitude": 1.1603313,
+      "longitude": 110.56087679999999,
+      "street": "Lot 1294 & 1295, Serian Town District, Golden Commerical Center",
+      "address": "94700 Serian, Sarawak",
+      "fulladdress": "Lot 1294 & 1295, Serian Town District, Golden Commerical Center, 94700 Serian, Sarawak",
+      "phone": "082-875 319"
+    },
+    {
+      "name": "Jabatan Bekalan Air Luar Bandar Sarawak (Bahagian Kuching)",
+      "latitude": 1.549752,
+      "longitude": 110.36935609999999,
+      "street": "Jalan Pending",
+      "address": "93450 Kuching, Sarawak",
+      "fulladdress": "Jalan Pending, 93450 Kuching, Sarawak",
+      "phone": "082-332 936"
+    },
+    {
+      "name": "Waters Mineral Water (Kuching)",
+      "latitude": 1.5158624,
+      "longitude": 110.3109082,
+      "street": "AF 105, Batu Kawah New Township, Jalan Batu Kawa, 93250, Kuching, Sarawak",
+      "address": "AF 105, Jalan Batu Kawa, Batu Kawa New Township, 93250 Kuching, Sarawak",
+      "fulladdress": "AF 105, Batu Kawah New Township, Jalan Batu Kawa, 93250, Kuching, Sarawak, AF 105, Jalan Batu Kawa, Batu Kawa New Township, 93250 Kuching, Sarawak",
+      "phone": "011-1600 3889"
+    },
+    {
+      "name": "Water Shop (M) Sdn Bhd",
+      "latitude": 4.4199009,
+      "longitude": 114.0171785,
+      "street": "Lot 2217, Ground Floor",
+      "address": "Saberkas Commercial Centre, 98000 Miri, Sarawak",
+      "fulladdress": "Lot 2217, Ground Floor, Saberkas Commercial Centre, 98000 Miri, Sarawak",
+      "phone": "016-855 1830"
+    }
+  ]
