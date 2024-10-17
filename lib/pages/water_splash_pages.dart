@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_map_hakas_version/pages/home_pages.dart';
 import 'dart:math' as math;
 
+import 'package:google_map_hakas_version/pages/login_page.dart';
+
 class WaterDropSplashScreen extends StatefulWidget {
   const WaterDropSplashScreen({super.key});
 
@@ -39,7 +41,7 @@ class _WaterDropSplashScreenState extends State<WaterDropSplashScreen> with Sing
     _controller.forward().then((_) {
       Future.delayed(const Duration(milliseconds: 500), () {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomePages()),
+          MaterialPageRoute(builder: (context) => LoginScreen()),
         );
       });
     });
